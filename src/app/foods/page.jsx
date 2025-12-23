@@ -7,8 +7,8 @@ const Foods = async() => {
         cache: "no-store"
     });
     const data = await res.json();
+    await new Promise(resolve => setTimeout(resolve, 3000)); //all food page will open after 3 sec of clicking
     const {foods} = data;
-    console.log(foods);
     return (
         <div className='my-4'>
             <h2 className='text-center font-bold text-2xl'>
