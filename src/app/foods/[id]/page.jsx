@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const page = async ({params}) => {
@@ -12,7 +13,8 @@ const page = async ({params}) => {
         <div className="max-w-4xl mx-auto p-6">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 {/* Image */}
-                <img src={food.foodImg} alt={food.title} className="w-full h-80 object-cover" />
+                {/* <img src={food.foodImg} alt={food.title} className="w-full h-80 object-cover" /> */}
+                <Image src={food.foodImg} alt={food.title} className="w-full h-80 object-cover" width={500} height={500}/>
 
                 {/* Content */}
                 <div className="p-6">

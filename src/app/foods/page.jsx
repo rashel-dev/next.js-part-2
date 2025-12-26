@@ -1,23 +1,27 @@
-import FoodCard from '@/Components/Cards/FoodCard';
-import React from 'react';
+import FoodCard from "@/Components/Cards/FoodCard";
+import React from "react";
 
-const Foods = async() => {
-
+const Foods = async () => {
     const res = await fetch("https://taxi-kitchen-api.vercel.app/api/v1/foods/random", {
-        cache: "no-store"
+        cache: "no-store",
     });
     const data = await res.json();
-    await new Promise(resolve => setTimeout(resolve, 2000)); //all food page will open after 3 sec of clicking
-    const {foods} = data;
+    await new Promise((resolve) => setTimeout(resolve, 2000)); //all food page will open after 3 sec of clicking
+    const { foods } = data;
     return (
-        <div className='my-4'>
-            <h2 className='text-center font-bold text-2xl'>
+        <div className="my-4">
+            <h2 className="text-center font-bold text-2xl">
                 Total <span className="text-orange-400">{foods.length}</span> foods found
             </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-                {
-                    foods.map(food => <FoodCard key={food.id} food={food} />)
-                }
+            <div className="flex gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {foods.map((food) => (
+                        <FoodCard key={food.id} food={food} />
+                    ))}
+                </div>
+                <div className="w-60 border-2 rounded-xl p-4">
+                    <h2 className="font-bold text-2xl mb-2">Cart Items</h2> <hr />
+                </div>
             </div>
         </div>
     );

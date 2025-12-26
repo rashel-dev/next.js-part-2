@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           <nav>
             <ul className="flex gap-5 text-white">
               <li><Link href="/">Home</Link></li>
-              <li><Link href="/foods">All Foods</Link></li>
+              <li><Link href="/foods" prefetch={false}>All Foods</Link></li>
               <li><Link href="/reviews">Reviews</Link></li>
             </ul>
           </nav>
